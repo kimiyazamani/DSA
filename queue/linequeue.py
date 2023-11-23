@@ -18,3 +18,11 @@ class Queue:
             return True
         else:
             return False
+
+    def Enqueue(self, item):
+        if self.is_full():
+            print("Queue is full.")
+           
+        else:
+            self.queue[self.rear] = data
+            self.rear = self.rear + 1

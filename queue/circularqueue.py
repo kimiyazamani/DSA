@@ -32,3 +32,10 @@ class Queue:
             self.queue[self.front]=None
             self.front=(self.front+1) % self.size
             return value
+
+    def Peek(self): 
+        if self.is_empty():
+            print("Queue is empty")
+            return None
+        else:
+            return self.queue[self.front]

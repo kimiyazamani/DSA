@@ -26,3 +26,11 @@ class Queue:
         else:
             self.queue[self.rear] = data
             self.rear = self.rear + 1
+
+    def Dequeue(self):
+        if self.is_empty():
+            print("Queue is empty.")
+        else:
+            dequeued_item = self.item[self.front]
+            self.front += 1
+            return dequeued_item

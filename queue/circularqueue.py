@@ -39,3 +39,16 @@ class Queue:
             return None
         else:
             return self.queue[self.front]
+
+    def ReverseQueue(self):
+        if self.is_empty():
+            print("The queue is empty!")
+            return 
+        else:
+            f=self.front
+            r=(self.rear-1)%self.size
+            while i<j:
+                self.queue[f],self.queue[r]=self.queue[r],self.queue[f]
+                f+=1
+                r=1
+            return

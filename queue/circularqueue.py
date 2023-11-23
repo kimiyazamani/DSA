@@ -14,3 +14,11 @@ class Queue:
     def IsFull(self):
         if ((self.rear+1)%self.size)==self.front:
             return True
+
+    def Enqueue(self,item):  
+        if self.is_full():
+            print("Queue is full.")
+            return
+        else:
+            self.queue[self.rear]=item
+            self.rear=(self.rear+1)%self.size

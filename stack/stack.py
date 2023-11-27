@@ -9,3 +9,8 @@ class Stack:
             return True
         else:
             return False
+
+    def push(self, item):
+        if self.top < self.size:
+            self.List[self.top] = item
+            self.top += 1

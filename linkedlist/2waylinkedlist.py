@@ -84,3 +84,6 @@ class DoublyLinkedList:
 
     def RemoveNodeAtEnd(self):
         return self.RemoveNodeAtIndex(self.size - 1)
+
+    def SizeOfList(self):
+        return self.size

@@ -26,3 +26,9 @@ class LinkedList:
             cur.next = new_node
         
         self.size += 1
+
+    def InsertAtBegin(self, data):
+        self.InsertAtIndex(data, 0)
+
+    def InsertAtEnd(self, data):
+        self.InsertAtIndex(data, self.size)

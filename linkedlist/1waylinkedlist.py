@@ -32,3 +32,12 @@ class LinkedList:
 
     def InsertAtEnd(self, data):
         self.InsertAtIndex(data, self.size)
+
+    def UpdateNode(self, data, index):
+        if index < 0 or index >= self.size:
+            return
+
+        cur = self.head
+        for _ in range(index):
+            cur = cur.next
+        cur.data = data

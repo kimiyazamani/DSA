@@ -51,3 +51,30 @@ class DoublyLinkedList:
         for _ in range(index):
             cur = cur.next
         cur.data = data
+
+    def RemoveNodeAtIndex(self, index):
+        if index < 0 or index >= self.size:
+            return
+
+        if self.size == 1:
+            removed_data = self.head.data
+            self.head = None
+            self.tail = None
+        elif index == 0:
+            removed_data = self.head.data
+            self.head = self.head.next
+            self.head.prev = None
+        elif index == self.size - 1:
+            removed_data = self.tail.data
+            self.tail = self.tail.prev
+            self.tail.next = None
+        else:
+            cur = self.head
+            for _ in range(index):
+                cur = cur.next
+            removed_data = cur.data
+            cur.prev.next = cur.next
+            cur.next.prev = cur.prev
+
+        self.size -= 1
+        return removed_data

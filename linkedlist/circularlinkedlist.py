@@ -48,3 +48,24 @@ class CircularLinkedList:
         for _ in range(index + 1):
             cur = cur.next
         cur.data = data
+
+    def RemoveNodeAtIndex(self, index):
+        if index < 0 or index >= self.size:
+            return
+
+        if self.size == 1:
+            removed_data = self.head.data
+            self.head = None
+        elif index == 0:
+            removed_data = self.head.data
+            self.head.data = self.head.next.data
+            self.head.next = self.head.next.next
+        else:
+            cur = self.head
+            for _ in range(index - 1):
+                cur = cur.next
+            removed_data = cur.next.data
+            cur.next = cur.next.next
+
+        self.size -= 1
+        return removed_data

@@ -41,3 +41,20 @@ class LinkedList:
         for _ in range(index):
             cur = cur.next
         cur.data = data
+
+    def RemoveNodeAtIndex(self, index):
+        if index < 0 or index >= self.size:
+            return
+
+        if index == 0:
+            removed_data = self.head.data
+            self.head = self.head.next
+        else:
+            cur = self.head
+            for _ in range(index - 1):
+                current = cur.next
+            removed_data = cur.next.data
+            cur.next = cur.next.next
+
+        self.size -= 1
+        return removed_data

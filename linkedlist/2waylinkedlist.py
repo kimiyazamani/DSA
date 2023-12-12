@@ -87,3 +87,17 @@ class DoublyLinkedList:
 
     def SizeOfList(self):
         return self.size
+
+    def Concatenate(self, other_list):
+        if not isinstance(other_list, DoublyLinkedList):
+            return
+
+        if self.size == 0:
+            self.head = other_list.head
+            self.tail = other_list.tail
+        elif other_list.size > 0:
+            self.tail.next = other_list.head
+            other_list.head.prev = self.tail
+            self.tail = other_list.tail
+
+        self.size += other_list.size

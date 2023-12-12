@@ -78,3 +78,16 @@ class CircularLinkedList:
 
     def SizeOfList(self):
         return self.size
+
+    def Concatenate(self, other_list):
+        if not isinstance(other_list, CircularLinkedList):
+            return
+
+        if self.size == 0:
+            self.head = other_list.head
+        elif other_list.size > 0:
+            cur = self.head.next
+            self.head.next = other_list.head.next
+            other_list.head.next = cur
+
+        self.size += other_list.size

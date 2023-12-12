@@ -67,3 +67,14 @@ class LinkedList:
 
     def SizeOfList(self):
         return self.size
+
+    def Concatenate(self, other_list):
+        if not isinstance(other_list, LinkedList):
+            return
+
+        cur = self.head
+        while cur.next is not None:
+            cur = cur.next
+
+        cur.next = other_list.head
+        self.size += other_list.size

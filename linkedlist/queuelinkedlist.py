@@ -15,3 +15,13 @@ class Queue:
         else:
             self.rear.next = enqueued_node
             self.rear = enqueued_node
+
+    def dequeue(self):
+        if self.front is None:
+            return None
+        else:
+            dequeued_node = self.front
+            self.front = self.front.next
+            if self.front is None:
+                self.rear = None
+            return dequeued_node.data

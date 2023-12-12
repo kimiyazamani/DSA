@@ -78,3 +78,15 @@ class LinkedList:
 
         cur.next = other_list.head
         self.size += other_list.size
+
+    def Invert(self):
+        prev = None
+        cur = self.head
+
+        while cur is not None:
+            next_node = cur.next
+            cur.next = prev
+            prev = cur
+            cur = next_node
+
+        self.head = prev

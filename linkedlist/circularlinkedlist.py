@@ -91,3 +91,17 @@ class CircularLinkedList:
             other_list.head.next = cur
 
         self.size += other_list.size
+
+    def Invert(self):
+        if self.size > 1:
+            prev = None
+            cur = self.head
+            next_node = None
+
+            for _ in range(self.size):
+                next_node = cur.next
+                cur.next = prev
+                prev = cur
+                cur = next_node
+
+            self.head = prev

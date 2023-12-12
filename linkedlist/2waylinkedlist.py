@@ -101,3 +101,15 @@ class DoublyLinkedList:
             self.tail = other_list.tail
 
         self.size += other_list.size
+
+    def Invert(self):
+        cur = self.head
+        while cur is not None:
+            temp = cur.next
+            cur.next = cur.prev
+            cur.prev = temp
+            cur = temp
+
+        temp = self.head
+        self.head = self.tail
+        self.tail = temp

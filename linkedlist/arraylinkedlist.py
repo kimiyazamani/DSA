@@ -16,3 +16,11 @@ class Array:
             while cur.next:
                 cur = cur.next
             cur.next = appended_node
+
+    def pop(self):
+        if self.head is None:
+            return None
+        else:
+            popped_node = self.head
+            self.head = self.head.next
+            return popped_node.data

@@ -5,3 +5,15 @@ class HashTable:
 
     def hasht(self, key):
         return hash(key) % self.size
+
+    def insert(self, key, value):
+        index = self.hasht(key)
+        if self.table[index] is None:
+            self.table[index] = [(key, value)]
+        else:
+            for i, (existing_key, existing_value) in enumerate(self.table[index]):
+                if existing_key == key:
+                    self.table[index][i] = (key, value)
+                    break
+            else:
+                self.table[index].append((key, value))

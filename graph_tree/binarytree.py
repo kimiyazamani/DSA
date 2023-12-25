@@ -50,3 +50,13 @@ class BinaryTree:
             root.right = self._remove(root.right, root.key)
         
         return root
+
+    def search(self, key):
+        return self._search(self.root, key)
+
+    def _search(self, root, key):
+        if root is None or root.key == key:
+            return root is not None
+        if key < root.key:
+            return self._search(root.left, key)
+        return self._search(root.right, key)

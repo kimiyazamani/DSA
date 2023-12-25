@@ -72,3 +72,9 @@ class BinaryTree:
             self.in_order_traversal(root.left)
             print(root.key, end=' ')
             self.in_order_traversal(root.right)
+
+    def post_order_traversal(self, root):
+        if root is not None:
+            self.post_order_traversal(root.left)
+            self.post_order_traversal(root.right)
+            print(root.key, end=' ')

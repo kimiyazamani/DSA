@@ -25,3 +25,11 @@ class HashTable:
                 if existing_key == key:
                     del self.table[index][i]
                     break
+
+    def search(self, key):
+        index = self.hasht(key)
+        if self.table[index] is not None:
+            for existing_key, value in self.table[index]:
+                if existing_key == key:
+                    return value
+        return None

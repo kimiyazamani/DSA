@@ -29,3 +29,24 @@ class BinaryTree:
             root.right = self._insert(root.right, key)
 
         return root
+
+    def remove(self, key):
+        self.root = self._remove(self.root, key)
+
+    def _remove(self, root, key):
+        if root is None:
+            return root
+
+        if key < root.key:
+            root.left = self._remove(root.left, key)
+        elif key > root.key:
+            root.right = self._remove(root.right, key)
+        else:
+            if root.left is None:
+                return root.right
+            elif root.right is None:
+                return root.left
+            root.key = self.min_value(root.right)
+            root.right = self._remove(root.right, root.key)
+        
+        return root

@@ -60,3 +60,9 @@ class BinaryTree:
         if key < root.key:
             return self._search(root.left, key)
         return self._search(root.right, key)
+
+    def pre_order_traversal(self, root):
+        if root is not None:
+            print(root.key, end=' ')
+            self.pre_order_traversal(root.left)
+            self.pre_order_traversal(root.right)

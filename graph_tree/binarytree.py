@@ -66,3 +66,9 @@ class BinaryTree:
             print(root.key, end=' ')
             self.pre_order_traversal(root.left)
             self.pre_order_traversal(root.right)
+
+    def in_order_traversal(self, root):
+        if root is not None:
+            self.in_order_traversal(root.left)
+            print(root.key, end=' ')
+            self.in_order_traversal(root.right)

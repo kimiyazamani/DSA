@@ -79,3 +79,23 @@ class AVLTree:
             root.right = self.insert(root.right, key)
 
         return self.balance_node(root)
+
+    def remove(self, root, key):
+        if not root:
+            return root
+
+        if key < root.key:
+            root.left = self.remove(root.left, key)
+        elif key > root.key:
+            root.right = self.remove(root.right, key)
+        else:
+            if not root.left:
+                return root.right
+            elif not root.right:
+                return root.left
+
+            temp = self.find_min(root.right)
+            root.key = temp.key
+            root.right = self.remove(root.right, temp.key)
+
+        return self.balance_node(root)

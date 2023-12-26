@@ -46,3 +46,5 @@ class Graph:
                 if neighbor not in visited:
                     queue.append(neighbor)
                     visited.add(neighbor)
+
+        return result

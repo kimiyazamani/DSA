@@ -48,3 +48,21 @@ class Graph:
                     visited.add(neighbor)
 
         return result
+
+    def dfs(self):
+        visited = set()
+        result = []
+
+        for vertex in self.graph:
+            if vertex not in visited:
+                self.dfs_helper(vertex, visited, result)
+
+        return " -> ".join(map(str, result))
+
+    def dfs_helper(self, current_vertex, visited, result):
+        visited.add(current_vertex)
+        result.append(current_vertex)
+
+        for neighbor in self.graph[current_vertex]:
+            if neighbor not in visited:
+                self._dfs_helper(neighbor, visited, result)

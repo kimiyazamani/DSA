@@ -22,3 +22,27 @@ class Graph:
         if first_vertex in self.graph and second_vertex in self.graph:
             self.graph[first_vertex] = [v for v in self.graph[first_vertex] if v != second_vertex]
             self.graph[second_vertex] = [v for v in self.graph[second_vertex] if v != first_vertex]
+
+    def bfs(self):
+        visited = set()
+        result = []
+
+        for vertex in self.graph:
+            if vertex not in visited:
+                result.extend(self.bfs_helper(vertex, visited))
+
+        return " -> ".join(map(str, result))
+
+    def bfs_helper(self, start_vertex, visited):
+        result = []
+        queue = [start_vertex]
+        visited.add(start_vertex)
+
+        while queue:
+            current_vertex = queue.pop(0)
+            result.append(current_vertex)
+
+            for neighbor in self.graph[current_vertex]:
+                if neighbor not in visited:
+                    queue.append(neighbor)
+                    visited.add(neighbor)

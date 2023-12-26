@@ -60,4 +60,31 @@ class MinHeap:
         self.heap.append(value)
         self.heapify_up()
 
+    def heapify_down(self, index):
+        while True:
+            left_child_index = 2 * index + 1
+            right_child_index = 2 * index + 2
+            smallest = index
+
+            if left_child_index < len(self.heap) and self.heap[left_child_index] < self.heap[smallest]:
+                smallest = left_child_index
+
+            if right_child_index < len(self.heap) and self.heap[right_child_index] < self.heap[smallest]:
+                smallest = right_child_index
+
+            if smallest != index:
+                self.heap[index], self.heap[smallest] = self.heap[smallest], self.heap[index]
+                index = smallest
+            else:
+                break
+
+    def remove(self, value):
+        if value not in self.heap:
+            return
+        index = self.heap.index(value)
+        self.heap[index], self.heap[-1] = self.heap[-1], self.heap[index]
+        removed_value = self.heap.pop()
+        self.heapify_down(index)
+        return removed_value
+
     

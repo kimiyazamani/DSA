@@ -68,3 +68,14 @@ class AVLTree:
             return self.rotate_left(node)
 
         return node
+
+    def insert(self, root, key):
+        if not root:
+            return AVLNode(key)
+
+        if key < root.key:
+            root.left = self.insert(root.left, key)
+        else:
+            root.right = self.insert(root.right, key)
+
+        return self.balance_node(root)
